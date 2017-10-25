@@ -305,6 +305,7 @@ node* del_helper(node* root, float val, bool* DBLACK)
             node* temp = root;
             root = root->left;
             root->color = BLACK;
+            delete temp->right;
             delete temp;
             return root;
         }
@@ -314,7 +315,8 @@ node* del_helper(node* root, float val, bool* DBLACK)
                 *DBLACK = true;
             node* temp = root;
             root = root->right;
-            root->color = BLACK;;
+            root->color = BLACK;
+            delete temp->left;
             delete temp;
             return root;
         }
